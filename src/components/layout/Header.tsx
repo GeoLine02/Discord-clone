@@ -1,8 +1,26 @@
+"use client";
+
 import React from "react";
 import "../../app/globals.css";
 import Logo from "../shared/Logo";
 
-const Header = () => {
+interface IHeaderProps {
+  downloadRef: React.MutableRefObject<HTMLDivElement | null>;
+}
+
+const Header = ({ downloadRef }: IHeaderProps) => {
+  const openDiscord = () => {
+    const timeout = setTimeout(() => {
+      if (downloadRef.current) {
+        window.open("https://discord.com/download", "_blank");
+      }
+    }, 300);
+
+    window.location.href = "discord://";
+
+    window.addEventListener("blur", () => clearTimeout(timeout));
+  };
+
   return (
     <header className="flex items-center justify-between container mx-auto py-4">
       <Logo />
@@ -15,14 +33,12 @@ const Header = () => {
         <li className="cursor-pointer">Blog</li>
         <li className="cursor-pointer">Careers</li>
       </ul>
-      <div className="flex items-center gap-4">
-        <button className="bg-white rounded-full px-7 py-2 text-center text-black hover:opacity-70">
-          Sign in
-        </button>
-        <button className="bg-white rounded-full px-7 py-2 text-center text-black hover:opacity-70">
-          Sign up
-        </button>
-      </div>
+      <button
+        onClick={openDiscord}
+        className="bg-white text-black rounded-full px-7 py-2 text-center"
+      >
+        Open Discord
+      </button>
     </header>
   );
 };

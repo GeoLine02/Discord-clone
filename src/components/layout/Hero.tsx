@@ -1,13 +1,21 @@
-import React from "react";
+"use client";
+
+import React, { useRef } from "react";
 import Header from "./Header";
 import { GoDownload } from "react-icons/go";
 import Image from "next/image";
 import HeroImage from "../../../assets/images/HeroImage.svg";
 
 const Hero = () => {
+  const downloadRef = useRef<HTMLDivElement | null>(null);
+
+  const handleDownload = () => {
+    window.open("https://discord.com/download", "_blank");
+  };
+
   return (
     <section className="bg-bgPrimary text-white">
-      <Header />
+      <Header downloadRef={downloadRef} />
       <div className="flex flex-col gap-14 justify-center items-center">
         <h1 className="text-5xl ">Imagine a place...</h1>
         <p className="max-w-3xl text-xl">
@@ -17,7 +25,11 @@ const Hero = () => {
           hang out more often.
         </p>
         <div className="flex items-center gap-6">
-          <div className="flex items-center gap-2 px-8 py-4 bg-white rounded-full text-black font-medium">
+          <div
+            ref={downloadRef}
+            onClick={handleDownload}
+            className="flex items-center gap-2 px-8 py-4 bg-white rounded-full text-black font-medium"
+          >
             <GoDownload size={20} />
             <button>Download for Windows</button>
           </div>
