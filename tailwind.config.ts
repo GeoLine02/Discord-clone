@@ -12,6 +12,7 @@ const config: Config = {
         bgPrimary: "#404EED",
         bgDarkGray: "#23272A",
         bglightgray: "#F6F6F6",
+        secondaryDarkGray: "#313338",
       },
     },
   },

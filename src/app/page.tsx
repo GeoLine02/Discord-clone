@@ -2,10 +2,13 @@ import StudyGroupIamge from "../../assets/images/StudyGroup.svg";
 import VoiceChatImage from "../../assets/images/VoiceChatIamge.svg";
 import PrivateChannelsImage from "../../assets/images/PrivateChannelsIamge.svg";
 import FeatureCard from "@/components/ui/FeatureCard";
+import Hero from "@/components/layout/Hero";
+import Footer from "@/components/layout/Footer";
 
 export default function Home() {
   return (
     <div>
+      <Hero />
       <FeatureCard
         altText="study-group"
         description="Discord servers are organized into topic-based channels where you
@@ -31,6 +34,7 @@ export default function Home() {
         title="From few to a fandom"
         direction="ltr"
       />
+      <Footer />
     </div>
   );
 }
