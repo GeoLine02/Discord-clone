@@ -5,6 +5,7 @@ import Header from "./Header";
 import { GoDownload } from "react-icons/go";
 import Image from "next/image";
 import HeroImage from "../../../assets/images/HeroImage.svg";
+import { useRouter } from "next/navigation";
 
 const Hero = () => {
   const downloadRef = useRef<HTMLDivElement | null>(null);
@@ -12,6 +13,8 @@ const Hero = () => {
   const handleDownload = () => {
     window.open("https://discord.com/download", "_blank");
   };
+
+  const router = useRouter();
 
   return (
     <section className="bg-bgPrimary text-white">
@@ -33,7 +36,10 @@ const Hero = () => {
             <GoDownload size={20} />
             <button>Download for Windows</button>
           </div>
-          <button className="text-white bg-bgDarkGray px-8 py-4 rounded-full font-medium">
+          <button
+            onClick={() => router.push("/channels/me")}
+            className="text-white bg-bgDarkGray px-8 py-4 rounded-full font-medium"
+          >
             Open Discord on your browser
           </button>
         </div>

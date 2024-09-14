@@ -6,13 +6,16 @@ export const sideBarList = [
   {
     Icon: FaUserFriends,
     title: "Friends",
+    path: "/channels/me",
   },
   {
     Icon: PiSpeedometerFill,
     title: "Nitro",
+    path: "/store",
   },
   {
     Icon: FaShop,
     title: "Shop",
+    path: "/shop",
   },
 ];

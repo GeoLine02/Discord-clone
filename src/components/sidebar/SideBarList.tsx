@@ -1,10 +1,16 @@
+"use client";
+
 import { sideBarList } from "@/constants/sideBarLists";
 import React from "react";
-import FriendList from "../shared/FriendList";
-import Search from "./Search";
+import Search from "../shared/Search";
 import { FaPlus } from "react-icons/fa";
+import DirectMessagesList from "../directMessage/DirectMessageList";
+import { usePathname, useRouter } from "next/navigation";
 
 const SideBarList = () => {
+  const router = useRouter();
+  const currentPath = usePathname();
+
   return (
     <div className="bg-secondaryDarkGray min-w-60 h-screen">
       <section className="p-2">
@@ -14,10 +20,13 @@ const SideBarList = () => {
       <div className="px-2">
         <section>
           {sideBarList.map((listItem) => {
-            const { Icon, title } = listItem;
+            const { Icon, title, path } = listItem;
             return (
               <div
-                className="flex itesm-center gap-3 py-2"
+                onClick={() => router.push(path)}
+                className={`${
+                  path === currentPath && "bg-hoverGray"
+                } flex itesm-center gap-3 py-2 cursor-pointer hover:bg-hoverGray rounded-lg`}
                 key={listItem.title}
               >
                 <Icon size={30} />
@@ -31,7 +40,7 @@ const SideBarList = () => {
             <span>Direct messages</span>
             <FaPlus />
           </div>
-          <FriendList />
+          <DirectMessagesList />
         </div>
       </div>
     </div>

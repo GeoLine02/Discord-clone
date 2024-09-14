@@ -13,6 +13,7 @@ const config: Config = {
         bgDarkGray: "#23272A",
         bglightgray: "#F6F6F6",
         secondaryDarkGray: "#313338",
+        hoverGray: "#393C41",
       },
     },
   },

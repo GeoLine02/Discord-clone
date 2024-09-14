@@ -1,6 +1,7 @@
 import AppHeader from "@/components/layout/AppHeader";
 import SideBar from "@/components/layout/SideBar";
 import { Metadata } from "next";
+import "../globals.css";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -13,7 +14,7 @@ const layout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
       <SideBar />
       <div className="w-full">
         <AppHeader />
-        {children}
+        <main>{children}</main>
       </div>
     </div>
   );
